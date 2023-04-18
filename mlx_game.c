@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_game.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
+/*   By: fbiondo <fbiondo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 14:56:27 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/04/17 16:45:29 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/04/18 16:45:21 by fbiondo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int	coin_loop(t_game *game)
 	int		i;
 	int		j;
 	char	*str;
+	char	*str1;
 
 	if (game->loop < 1500)
 	{
@@ -94,8 +95,11 @@ int	coin_loop(t_game *game)
 		game->switch_image = 0;
 	}
 	input_image(game);
-	str = ft_strjoinmov("Number of moves: ", ft_itoa(game->moves));
+	str1 = ft_itoa(game->moves);
+	str = ft_strjoinmov("Number of moves: ", str1);
 	mlx_string_put(game->mlx, game->mlx_window, 5, 10, 0xFFFFFF, str);
+	free(str);
+	free(str1);
 	game->switch_image++;
 	return (1);
 }

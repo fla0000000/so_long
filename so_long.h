@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
+/*   By: fbiondo <fbiondo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 20:54:07 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/04/18 14:00:12 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/04/18 16:28:13 by fbiondo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_game{
 	int			switch_image;
 }	t_game;
 
+void	ft_free(t_game *game);
 char	*ft_itoa(int n);
 int		check_controll_wall(t_game *file_game, char *str);
 void	inspection_ber(char *file);

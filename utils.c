@@ -3,14 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
+/*   By: fbiondo <fbiondo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 11:34:27 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/04/18 13:59:03 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/04/18 16:42:26 by fbiondo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	ft_free(t_game *game)
+{
+	int		j;
+
+	j = 0;
+	while (game->map[j] != '\0')
+	{
+		free(game->map[j]);
+		j++;
+	}
+	j = 0;
+	free(game->map);
+}
 
 int	press_x(void)
 {

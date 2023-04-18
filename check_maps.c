@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_maps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
+/*   By: fbiondo <fbiondo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 18:15:51 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/04/17 14:56:54 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/04/18 16:50:20 by fbiondo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ void	inspection_rectagular(t_game *filegame, char *file)
 		if (check_controll_wall(filegame, str))
 			//i = (int)ft_strlen(str);
 		i = (int)ft_strlen(str) - 1;
-			str = get_next_line(fd);
+		free(str);
+		str = get_next_line(fd);
 		if (!str)
 			break ;
 		if (i != filegame->playground.x)
@@ -56,10 +57,12 @@ void	read_maps(t_game *game, char *file_name)
 	while (str)
 	{
 		game->map[i++] = str;
+		//free(str);
 		str = get_next_line(fd);
+		
 	}
 	close(fd);
-	free(str);
+	//free(str);
 }
 
 void	inspection_walls(t_game *game)

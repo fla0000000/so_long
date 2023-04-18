@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
+/*   By: fbiondo <fbiondo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 17:22:46 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/04/18 14:00:28 by flaviobiond      ###   ########.fr       */
+/*   Updated: 2023/04/18 16:52:37 by fbiondo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,15 @@ void	actually_moving(t_game *game, int h, int w)
 void	print_move(t_game *game)
 {
 	char	*str;
+	char	*str1;
 
-	str = ft_strjoinmov("Number of moves: ", ft_itoa(game->moves));
+	str1 = ft_itoa(game->moves);
+	str = ft_strjoinmov("Number of moves: ", str1);
 	mlx_string_put(game->mlx, game->mlx_window, 5, 10, 0xFFFFFF, str);
 	write(1, str, ft_strlen(str));
 	write(1, "\n", 1);
+	free(str);
+	free(str1);
 	game->moves++;
 }
 
