@@ -1,7 +1,7 @@
 
 NAME = so_long
 
-SRCS = main.c check_maps.c ft_itoa.c mlx_game.c utils.c move_game.c\
+SRCS = main.c check_maps.c ft_itoa.c mlx_game.c utils.c move_game.c utils2.c\
 	./getnextline/get_next_line.c \
 	./getnextline/get_next_line_utils.c \
 

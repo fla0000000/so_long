@@ -6,7 +6,7 @@
 /*   By: fbiondo <fbiondo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 14:56:27 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/04/18 16:45:21 by fbiondo          ###   ########.fr       */
+/*   Updated: 2023/04/19 17:50:18 by fbiondo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,6 @@ int	coin_loop(t_game *game)
 {
 	int		i;
 	int		j;
-	char	*str;
-	char	*str1;
 
 	if (game->loop < 1500)
 	{
@@ -95,21 +93,17 @@ int	coin_loop(t_game *game)
 		game->switch_image = 0;
 	}
 	input_image(game);
-	str1 = ft_itoa(game->moves);
-	str = ft_strjoinmov("Number of moves: ", str1);
-	mlx_string_put(game->mlx, game->mlx_window, 5, 10, 0xFFFFFF, str);
-	free(str);
-	free(str1);
+	ciao(game);
 	game->switch_image++;
 	return (1);
 }
 
-void	mlx_game(t_game *filegame)
+void	mlx_game(t_game *game)
 {
-	filegame->mlx = mlx_init();
-	 filegame->mlx_window = mlx_new_window(filegame->mlx, filegame->playground.x * 50,
-			filegame->playground.y * 50, "Spider-man 3");
-	fileimage(filegame);
-	input_image(filegame);
-	mlx_loop_hook(filegame->mlx, coin_loop, filegame);
+	game->mlx = mlx_init();
+	game->mlx_window = mlx_new_window(game->mlx, game->playground.x * 50,
+			game->playground.y * 50, "Spider-man 3");
+	fileimage(game);
+	input_image(game);
+	mlx_loop_hook(game->mlx, coin_loop, game);
 }
