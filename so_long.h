@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbiondo <fbiondo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 20:54:07 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/04/18 16:28:13 by fbiondo          ###   ########.fr       */
+/*   Updated: 2023/04/19 15:27:51 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,6 @@ int		press_x(void);
 int		player_can_exit(t_game *game);
 void	exit_success(void);
 void	exit_fail(void);
+int	valid_char(char c);
 
 #endif

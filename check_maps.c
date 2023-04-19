@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_maps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbiondo <fbiondo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 18:15:51 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/04/18 16:50:20 by fbiondo          ###   ########.fr       */
+/*   Updated: 2023/04/19 16:16:16 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,11 @@ void	inspection_player_coin(t_game *game)
 		k = -1;
 		while (++k < game->playground.x)
 		{
+			if(!valid_char(game->map[j][k]))
+			{	
+				ft_free(game);
+				exit(write(1, "errore404", 9) * 0);
+			}
 			if (game->map[j][k] == 'P')
 			{
 				game->player.wid_pos = k;

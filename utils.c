@@ -3,26 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fbiondo <fbiondo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: flaviobiondo <flaviobiondo@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 11:34:27 by flaviobiond       #+#    #+#             */
-/*   Updated: 2023/04/18 16:42:26 by fbiondo          ###   ########.fr       */
+/*   Updated: 2023/04/19 15:49:03 by flaviobiond      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
+int	valid_char(char c)
+{
+	if (c == '1' || c == '0' || c == 'C' || c == 'E' || c == 'P'
+		|| c == 'F')
+		return (1);
+	return (0);
+}
+
 void	ft_free(t_game *game)
 {
 	int		j;
 
-	j = 0;
-	while (game->map[j] != '\0')
-	{
+	j = -1;
+	while (game->map[++j] != 0)
 		free(game->map[j]);
-		j++;
-	}
-	j = 0;
 	free(game->map);
 }
 
